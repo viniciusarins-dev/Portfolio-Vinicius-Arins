@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vinicius de Jesus Arins — Desenvolvedor</title>
+<style>
+  :root{
+    --bg: #0b0d12;
+    --bg-elev: #12151c;
+    --bg-elev-2: #171b24;
+    --border: #262b36;
+    --text: #eef0f4;
+    --text-dim: #9aa2b1;
+    --text-faint: #6b7280;
+    --accent: #6ea8fe;
+    --accent-soft: rgba(110,168,254,0.12);
+    --accent-strong: #8fbcff;
+    --radius: 14px;
+    --maxw: 1080px;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a{ color: var(--accent); text-decoration: none; }
+  a:hover{ color: var(--accent-strong); text-decoration: underline; }
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  header.nav{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(11,13,18,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner{
+    max-width: var(--maxw); margin:0 auto; padding: 14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{ font-weight:700; letter-spacing:0.2px; color:var(--text); font-size:16px; }
+  .brand span{ color: var(--accent); }
+  nav.links{ display:flex; gap:22px; }
+  nav.links a{ color: var(--text-dim); font-size:14px; font-weight:500; }
+  nav.links a:hover{ color: var(--text); text-decoration:none; }
+
+  section{ padding: 88px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type{ border-bottom:none; }
+
+  .hero{ padding-top: 96px; padding-bottom: 96px; }
+  .eyebrow{
+    display:inline-block; font-size:13px; font-weight:600; color: var(--accent);
+    background: var(--accent-soft); padding:5px 12px; border-radius: 999px; margin-bottom:20px;
+    letter-spacing:0.3px;
+  }
+  h1{ font-size: clamp(32px, 5vw, 52px); line-height:1.12; margin:0 0 18px; letter-spacing:-0.5px; }
+  h1 .accent{ color: var(--accent); }
+  .lead{ font-size: 18px; color: var(--text-dim); max-width: 620px; margin: 0 0 34px; }
+  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 12px 22px; border-radius: 10px; font-weight:600; font-size:14px;
+    border:1px solid transparent; transition: all .15s ease;
+  }
+  .btn-primary{ background: var(--accent); color:#0b0d12; }
+  .btn-primary:hover{ background: var(--accent-strong); text-decoration:none; transform: translateY(-1px); }
+  .btn-ghost{ border-color: var(--border); color: var(--text); }
+  .btn-ghost:hover{ border-color:#3a4152; text-decoration:none; background: var(--bg-elev); }
+
+  h2.section-title{
+    font-size: 13px; text-transform: uppercase; letter-spacing: 1.6px;
+    color: var(--text-faint); font-weight:700; margin: 0 0 36px;
+    display:flex; align-items:center; gap:14px;
+  }
+  h2.section-title::after{
+    content:""; flex:1; height:1px; background: var(--border);
+  }
+
+  .about-grid{ display:grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items:start; }
+  .about-text p{ color: var(--text-dim); margin: 0 0 16px; font-size:15.5px; }
+  .about-text p:last-child{ margin-bottom:0; }
+  .contact-card{
+    background: var(--bg-elev); border:1px solid var(--border); border-radius: var(--radius);
+    padding: 24px;
+  }
+  .contact-card h3{ margin:0 0 16px; font-size:14px; color: var(--text-faint); text-transform:uppercase; letter-spacing:1px; }
+  .contact-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
+  .contact-list li{ display:flex; align-items:center; gap:10px; font-size:14.5px; }
+  .contact-list .icon{
+    width:30px; height:30px; border-radius:8px; background: var(--accent-soft);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:14px;
+  }
+
+  .skills-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:16px; }
+  .skill-card{
+    background: var(--bg-elev); border:1px solid var(--border); border-radius: var(--radius);
+    padding:20px;
+  }
+  .skill-card h4{ margin:0 0 10px; font-size:14.5px; color: var(--text); }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .tag{
+    font-size:12.5px; padding:5px 10px; border-radius:7px;
+    background: var(--bg-elev-2); border:1px solid var(--border); color: var(--text-dim);
+  }
+
+  .projects-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:20px; }
+  .project-card{
+    background: var(--bg-elev); border:1px solid var(--border); border-radius: var(--radius);
+    padding: 24px; display:flex; flex-direction:column; transition: border-color .15s ease, transform .15s ease;
+  }
+  .project-card:hover{ border-color:#3a4152; transform: translateY(-2px); }
+  .project-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:12px; }
+  .project-card h3{ margin:0; font-size:17px; color:var(--text); }
+  .project-badge{
+    font-size:11px; font-weight:700; padding:4px 9px; border-radius:6px; white-space:nowrap;
+    background: var(--accent-soft); color: var(--accent-strong); letter-spacing:0.3px;
+  }
+  .project-card p.desc{ color: var(--text-dim); font-size:14.5px; margin: 0 0 16px; flex:1; }
+  .project-card .tag-row{ margin-bottom:18px; }
+  .project-links{ display:flex; gap:16px; font-size:13.5px; font-weight:600; margin-top:auto; }
+
+  footer{ padding: 40px 0 60px; text-align:center; color: var(--text-faint); font-size:13.5px; }
+  footer a{ color: var(--text-dim); }
+
+  @media (max-width: 760px){
+    nav.links{ display:none; }
+    .about-grid{ grid-template-columns: 1fr; }
+    section{ padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Vinicius <span>Arins</span></div>
+    <nav class="links">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#skills">Skills</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Disponível para novos projetos</span>
+    <h1>Vinicius de Jesus Arins<br><span class="accent">Desenvolvedor de Software</span></h1>
+    <p class="lead">
+      Construo aplicações web e automações que resolvem problemas reais — de painéis de gestão
+      com integração de pagamentos e WhatsApp até automações que substituem processos manuais
+      demorados. Trabalho do front ao back, sempre com foco em algo que funcione de verdade
+      no dia a dia de quem usa.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+      <a class="btn btn-ghost" href="https://github.com/viniciusarins-dev" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="#contato">Contato</a>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap">
+    <h2 class="section-title">Sobre</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Sou desenvolvedor focado em criar soluções práticas: sistemas de gestão, automações
+          de processos e integrações que economizam tempo real de quem trabalha com isso todo dia.
+          Gosto de projetos que misturam front-end bem cuidado com lógica de backend sólida —
+          desde dashboards com Next.js e Supabase até automações com Python e Selenium para
+          sistemas que não têm API oficial.
+        </p>
+        <p>
+          Já desenvolvi desde painéis de cobrança e controle de parcelas com notificações
+          automáticas via WhatsApp, até integrações web para consulta de notas fiscais e
+          landing pages completas para negócios locais. Curioso por natureza, estou sempre
+          testando novas ferramentas e formas mais eficientes de resolver problemas.
+        </p>
+      </div>
+      <div class="contact-card">
+        <h3>Contato rápido</h3>
+        <ul class="contact-list">
+          <li><span class="icon">☎</span> <a href="tel:+5547989191953">(47) 98919-1953</a></li>
+          <li><span class="icon">in</span> <a href="https://www.linkedin.com/in/vinicius-de-jesus-arins-/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><span class="icon">◎</span> <a href="https://instagram.com/vn.jes" target="_blank" rel="noopener">@vn.jes</a></li>
+          <li><span class="icon">⌥</span> <a href="https://github.com/viniciusarins-dev" target="_blank" rel="noopener">github.com/viniciusarins-dev</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="wrap">
+    <h2 class="section-title">Projetos</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-top">
+          <h3>Cobrança iPad</h3>
+          <span class="project-badge">PWA</span>
+        </div>
+        <p class="desc">
+          Progressive Web App para gestão de empréstimos e vendas parceladas de iPhones,
+          otimizado para iPad/Safari. Cadastro de clientes, controle de parcelas em formato
+          de planilha e disparo automático de cobranças via WhatsApp, com verificação diária
+          de atrasos e templates de mensagem configuráveis.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Next.js 16</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Tailwind CSS v4</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">Vercel Cron</span>
+          <span class="tag">WhatsApp API</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/viniciusarins-dev/Cobranca-ipad" target="_blank" rel="noopener">Ver no GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <h3>Finanças Vini</h3>
+          <span class="project-badge">App Mobile</span>
+        </div>
+        <p class="desc">
+          App mobile iOS-first de controle financeiro pessoal, com registro de transações por
+          linguagem natural (ex: "Gastei 45 no almoço") e um assistente de IA financeiro.
+          Interface dark-first com efeitos de glassmorphism, gráficos, metas e acompanhamento
+          de orçamento — roda gratuitamente via Expo Go, sem precisar de conta paga de
+          desenvolvedor Apple.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Expo SDK 57</span>
+          <span class="tag">React Native</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">NativeWind</span>
+          <span class="tag">Zustand</span>
+          <span class="tag">Reanimated</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/viniciusarins-dev/financas-vini" target="_blank" rel="noopener">Ver no GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <h3>MxCenter Automation</h3>
+          <span class="project-badge">Automação</span>
+        </div>
+        <p class="desc">
+          API em Flask que automatiza a consulta de notas fiscais no sistema MxCenter (WTTI),
+          que não expõe API pública. Usa Selenium para login e busca de dados, retornando
+          resultados em JSON para um dashboard de verificação — incluindo galeria de produtos
+          e sugestões de reposição de estoque.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Selenium</span>
+          <span class="tag">Gunicorn</span>
+          <span class="tag">HTML</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/viniciusarins-dev/Funcionalidade-mxcenter" target="_blank" rel="noopener">Ver no GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <h3>Sua Barbearia</h3>
+          <span class="project-badge">Landing Page</span>
+        </div>
+        <p class="desc">
+          Landing page completa para uma barbearia, com catálogo de serviços, cursos
+          profissionalizantes, apresentação da equipe, galeria e FAQ. Agendamento integrado
+          via WhatsApp, com identidade visual sóbria e foco em conversão para novos clientes.
+        </p>
+        <div class="tag-row">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Netlify</span>
+        </div>
+        <div class="project-links">
+          <a href="https://arins-barber.netlify.app" target="_blank" rel="noopener">Ver site →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <h3>Projeto SENAI</h3>
+          <span class="project-badge">Formulário</span>
+        </div>
+        <p class="desc">
+          Implementação de um formulário de contato com integração ao WhatsApp, desenvolvido
+          durante formação no SENAI. Estrutura simples e direta em HTML, CSS e JavaScript puro.
+        </p>
+        <div class="tag-row">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/viniciusarins-dev/Projeto-Senai" target="_blank" rel="noopener">Ver no GitHub →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h4>Front-end</h4>
+        <div class="tag-row">
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Next.js / React</span>
+          <span class="tag">React Native / Expo</span>
+          <span class="tag">Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Back-end</h4>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Dados & Infra</h4>
+        <div class="tag-row">
+          <span class="tag">Supabase</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Vercel</span>
+          <span class="tag">Netlify</span>
+          <span class="tag">Cron Jobs</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Automação & Integrações</h4>
+        <div class="tag-row">
+          <span class="tag">Selenium</span>
+          <span class="tag">WhatsApp API</span>
+          <span class="tag">Web Scraping</span>
+          <span class="tag">Gunicorn</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="wrap">
+    <h2 class="section-title">Contato</h2>
+    <p class="lead" style="margin-bottom:28px;">
+      Aberto a novos projetos, freelas e oportunidades. Chama no WhatsApp ou manda mensagem
+      no LinkedIn — respondo rápido.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://wa.me/5547989191953" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/vinicius-de-jesus-arins-/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://instagram.com/vn.jes" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn btn-ghost" href="https://github.com/viniciusarins-dev" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Vinicius de Jesus Arins — © 2026. Feito com HTML, CSS e café.
+  </div>
+</footer>
+
+</body>
+</html>
