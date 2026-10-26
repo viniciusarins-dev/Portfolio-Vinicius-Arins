@@ -2,391 +2,433 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Vinicius de Jesus Arins — Desenvolvedor</title>
-<style>
-  :root{
-    --bg: #0b0d12;
-    --bg-elev: #12151c;
-    --bg-elev-2: #171b24;
-    --border: #262b36;
-    --text: #eef0f4;
-    --text-dim: #9aa2b1;
-    --text-faint: #6b7280;
-    --accent: #6ea8fe;
-    --accent-soft: rgba(110,168,254,0.12);
-    --accent-strong: #8fbcff;
-    --radius: 14px;
-    --maxw: 1080px;
-  }
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  body{
-    margin:0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  a{ color: var(--accent); text-decoration: none; }
-  a:hover{ color: var(--accent-strong); text-decoration: underline; }
-  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vinicius Arins — Desenvolvimento de software</title>
+<meta name="description" content="Portfólio de Vinicius Arins. Desenvolvimento de sistemas e aplicações web: Cobrança/Recebe, gestão de cobranças e operações financeiras, e CRIEXO Intelligence, prospecção comercial." />
+<meta name="author" content="Vinicius de Jesus Arins" />
+<meta name="theme-color" content="#101110" />
+<meta name="color-scheme" content="dark" />
+<link rel="canonical" href="https://portfolio-vinicius-arins.netlify.app/" />
 
-  header.nav{
-    position: sticky; top:0; z-index: 50;
-    background: rgba(11,13,18,0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-inner{
-    max-width: var(--maxw); margin:0 auto; padding: 14px 24px;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .brand{ font-weight:700; letter-spacing:0.2px; color:var(--text); font-size:16px; }
-  .brand span{ color: var(--accent); }
-  nav.links{ display:flex; gap:22px; }
-  nav.links a{ color: var(--text-dim); font-size:14px; font-weight:500; }
-  nav.links a:hover{ color: var(--text); text-decoration:none; }
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="Vinicius Arins" />
+<meta property="og:title" content="Vinicius Arins — Desenvolvimento de software" />
+<meta property="og:description" content="Sistemas para resolver problemas reais: Cobrança/Recebe e CRIEXO Intelligence." />
+<meta property="og:url" content="https://portfolio-vinicius-arins.netlify.app/" />
+<meta property="og:image" content="https://portfolio-vinicius-arins.netlify.app/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Vinicius Arins — Construindo sistemas para resolver problemas reais." />
+<meta name="twitter:card" content="summary_large_image" />
 
-  section{ padding: 88px 0; border-bottom: 1px solid var(--border); }
-  section:last-of-type{ border-bottom:none; }
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
-  .hero{ padding-top: 96px; padding-bottom: 96px; }
-  .eyebrow{
-    display:inline-block; font-size:13px; font-weight:600; color: var(--accent);
-    background: var(--accent-soft); padding:5px 12px; border-radius: 999px; margin-bottom:20px;
-    letter-spacing:0.3px;
-  }
-  h1{ font-size: clamp(32px, 5vw, 52px); line-height:1.12; margin:0 0 18px; letter-spacing:-0.5px; }
-  h1 .accent{ color: var(--accent); }
-  .lead{ font-size: 18px; color: var(--text-dim); max-width: 620px; margin: 0 0 34px; }
-  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding: 12px 22px; border-radius: 10px; font-weight:600; font-size:14px;
-    border:1px solid transparent; transition: all .15s ease;
-  }
-  .btn-primary{ background: var(--accent); color:#0b0d12; }
-  .btn-primary:hover{ background: var(--accent-strong); text-decoration:none; transform: translateY(-1px); }
-  .btn-ghost{ border-color: var(--border); color: var(--text); }
-  .btn-ghost:hover{ border-color:#3a4152; text-decoration:none; background: var(--bg-elev); }
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+<script>document.documentElement.classList.add("js");</script>
+<script src="assets/js/main.js" defer></script>
 
-  h2.section-title{
-    font-size: 13px; text-transform: uppercase; letter-spacing: 1.6px;
-    color: var(--text-faint); font-weight:700; margin: 0 0 36px;
-    display:flex; align-items:center; gap:14px;
-  }
-  h2.section-title::after{
-    content:""; flex:1; height:1px; background: var(--border);
-  }
-
-  .about-grid{ display:grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items:start; }
-  .about-text p{ color: var(--text-dim); margin: 0 0 16px; font-size:15.5px; }
-  .about-text p:last-child{ margin-bottom:0; }
-  .contact-card{
-    background: var(--bg-elev); border:1px solid var(--border); border-radius: var(--radius);
-    padding: 24px;
-  }
-  .contact-card h3{ margin:0 0 16px; font-size:14px; color: var(--text-faint); text-transform:uppercase; letter-spacing:1px; }
-  .contact-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
-  .contact-list li{ display:flex; align-items:center; gap:10px; font-size:14.5px; }
-  .contact-list .icon{
-    width:30px; height:30px; border-radius:8px; background: var(--accent-soft);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:14px;
-  }
-
-  .skills-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:16px; }
-  .skill-card{
-    background: var(--bg-elev); border:1px solid var(--border); border-radius: var(--radius);
-    padding:20px;
-  }
-  .skill-card h4{ margin:0 0 10px; font-size:14.5px; color: var(--text); }
-  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; }
-  .tag{
-    font-size:12.5px; padding:5px 10px; border-radius:7px;
-    background: var(--bg-elev-2); border:1px solid var(--border); color: var(--text-dim);
-  }
-
-  .projects-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:20px; }
-  .project-card{
-    background: var(--bg-elev); border:1px solid var(--border); border-radius: var(--radius);
-    padding: 24px; display:flex; flex-direction:column; transition: border-color .15s ease, transform .15s ease;
-  }
-  .project-card:hover{ border-color:#3a4152; transform: translateY(-2px); }
-  .project-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:12px; }
-  .project-card h3{ margin:0; font-size:17px; color:var(--text); }
-  .project-badge{
-    font-size:11px; font-weight:700; padding:4px 9px; border-radius:6px; white-space:nowrap;
-    background: var(--accent-soft); color: var(--accent-strong); letter-spacing:0.3px;
-  }
-  .project-card p.desc{ color: var(--text-dim); font-size:14.5px; margin: 0 0 16px; flex:1; }
-  .project-card .tag-row{ margin-bottom:18px; }
-  .project-links{ display:flex; gap:16px; font-size:13.5px; font-weight:600; margin-top:auto; }
-
-  footer{ padding: 40px 0 60px; text-align:center; color: var(--text-faint); font-size:13.5px; }
-  footer a{ color: var(--text-dim); }
-
-  @media (max-width: 760px){
-    nav.links{ display:none; }
-    .about-grid{ grid-template-columns: 1fr; }
-    section{ padding: 56px 0; }
-  }
-</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Vinicius de Jesus Arins",
+  "url": "https://portfolio-vinicius-arins.netlify.app/",
+  "jobTitle": "Desenvolvedor de sistemas e aplicações web",
+  "sameAs": [
+    "https://github.com/viniciusarins-dev",
+    "https://www.linkedin.com/in/vinicius-de-jesus-arins-/",
+    "https://instagram.com/vn.jes"
+  ]
+}
+</script>
 </head>
 <body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<div class="progress" aria-hidden="true"><span></span></div>
 
-<header class="nav">
-  <div class="nav-inner">
-    <div class="brand">Vinicius <span>Arins</span></div>
-    <nav class="links">
-      <a href="#sobre">Sobre</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#skills">Skills</a>
-      <a href="#contato">Contato</a>
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="#inicio" aria-label="Vinicius Arins, voltar ao início">
+      <span class="brand-mark" aria-hidden="true">VA</span>
+      <span class="brand-name">Vinicius Arins</span>
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <ul class="nav-list" id="menu" data-menu>
+        <li><a href="#inicio" data-nav>Início</a></li>
+        <li><a href="#projetos" data-nav>Projetos</a></li>
+        <li><a href="#sobre" data-nav>Sobre</a></li>
+        <li><a href="#contato" data-nav>Contato</a></li>
+        <li class="nav-cta-mobile"><a class="btn btn-primary" href="#contato">Entrar em contato</a></li>
+      </ul>
     </nav>
+
+    <a class="btn btn-small header-cta" href="#contato">Entrar em contato</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+      <span class="sr-only" data-menu-label>Abrir menu</span>
+      <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
+    </button>
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap">
-    <span class="eyebrow">Disponível para novos projetos</span>
-    <h1>Vinicius de Jesus Arins<br><span class="accent">Desenvolvedor de Software</span></h1>
-    <p class="lead">
-      Construo aplicações web e automações que resolvem problemas reais — de painéis de gestão
-      com integração de pagamentos e WhatsApp até automações que substituem processos manuais
-      demorados. Trabalho do front ao back, sempre com foco em algo que funcione de verdade
-      no dia a dia de quem usa.
-    </p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#projetos">Ver projetos</a>
-      <a class="btn btn-ghost" href="https://github.com/viniciusarins-dev" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn btn-ghost" href="#contato">Contato</a>
-    </div>
-  </div>
-</section>
+<main id="conteudo">
 
-<section id="sobre">
-  <div class="wrap">
-    <h2 class="section-title">Sobre</h2>
-    <div class="about-grid">
-      <div class="about-text">
+  <!-- HERO -->
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div class="hero-main">
+        <p class="eyebrow hero-in" style="--d:0">Portfólio / Desenvolvimento de software</p>
+        <h1 class="hero-title" id="hero-title">
+          <span class="line"><span class="hero-in" style="--d:1">Construindo sistemas</span></span>
+          <span class="line"><span class="hero-in" style="--d:2">para resolver</span></span>
+          <span class="line"><span class="hero-in" style="--d:3">problemas <em>reais.</em></span></span>
+        </h1>
+        <p class="hero-lead hero-in" style="--d:4">
+          Sou Vinicius Arins. Desenvolvo aplicações e sistemas com foco em lógica de negócio,
+          organização de informações e experiências digitais funcionais.
+        </p>
+        <div class="hero-actions hero-in" style="--d:5">
+          <a class="btn btn-primary" href="#projetos">Explorar projetos <span class="arrow" aria-hidden="true">↓</span></a>
+          <a class="btn btn-ghost" href="#contato">Entrar em contato</a>
+        </div>
+      </div>
+
+      <aside class="hero-index hero-in" style="--d:6" aria-label="Índice dos projetos">
+        <p class="index-label"><span>Índice</span><span>02 projetos</span></p>
+        <ol class="index-list">
+          <li>
+            <a href="#recebe">
+              <span class="index-num">01</span>
+              <span class="index-body">
+                <span class="index-title">Cobrança/Recebe</span>
+                <span class="index-meta">Cobranças e operações financeiras</span>
+              </span>
+              <span class="index-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#criexo">
+              <span class="index-num">02</span>
+              <span class="index-body">
+                <span class="index-title">CRIEXO Intelligence</span>
+                <span class="index-meta">Inteligência comercial e prospecção</span>
+              </span>
+              <span class="index-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+        <svg class="schema" viewBox="0 0 340 120" role="img" aria-label="Diagrama abstrato: dados entram, passam por regras de negócio e viram registros.">
+          <g class="schema-lines">
+            <path d="M72 60 H138" />
+            <path d="M202 60 H268" />
+            <path d="M170 28 V12 M170 92 V108" />
+          </g>
+          <g class="schema-nodes">
+            <rect x="4" y="42" width="68" height="36" rx="2" />
+            <rect x="138" y="28" width="64" height="64" rx="2" class="schema-core" />
+            <rect x="268" y="42" width="68" height="36" rx="2" />
+          </g>
+          <g class="schema-text">
+            <text x="38" y="63">dados</text>
+            <text x="170" y="63">regras</text>
+            <text x="302" y="63">registro</text>
+          </g>
+        </svg>
+      </aside>
+    </div>
+
+    <a class="scroll-hint" href="#projetos">
+      <span class="scroll-line" aria-hidden="true"></span>
+      <span>Role para ver os projetos</span>
+    </a>
+  </section>
+
+  <!-- PROJETOS -->
+  <section class="projects" id="projetos" aria-labelledby="projetos-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Projetos em destaque</p>
+        <h2 class="section-title" id="projetos-title">Dois sistemas em desenvolvimento, construídos para uso real.</h2>
+        <p class="section-note">
+          As imagens são capturas reais das aplicações, rodando localmente com dados fictícios.
+          Nenhum dado de cliente aparece neste portfólio.
+        </p>
+      </header>
+    </div>
+
+    <!-- 01 RECEBE -->
+    <article class="project project-recebe" id="recebe" aria-labelledby="recebe-title">
+      <div class="container project-grid">
+        <div class="project-visual reveal" data-gallery>
+          <figure class="shot-stage">
+            <div class="shot-frame">
+              <div class="shot-bar" aria-hidden="true"><span></span><span></span><span></span><em data-gallery-path>/</em></div>
+              <img data-gallery-img src="assets/projetos/recebe-visao-geral.webp" width="1600" height="1000"
+                   alt="Tela Visão geral do Recebe com valores em aberto, clientes ativos, inadimplentes e recebido no mês, com dados fictícios."
+                   loading="lazy" decoding="async" />
+            </div>
+            <div class="shot-phone">
+              <img src="assets/projetos/recebe-mobile.webp" width="780" height="1688"
+                   alt="Tela Devedores do dia do Recebe no celular, com dados fictícios."
+                   loading="lazy" decoding="async" />
+            </div>
+            <figcaption class="shot-caption" data-gallery-caption>Visão geral: valores em aberto, inadimplência e recebimentos.</figcaption>
+          </figure>
+          <div class="gallery-tabs" role="group" aria-label="Telas do Recebe">
+            <button type="button" aria-pressed="true" data-src="assets/projetos/recebe-visao-geral.webp" data-path="/"
+              data-alt="Tela Visão geral do Recebe com valores em aberto, clientes ativos, inadimplentes e recebido no mês, com dados fictícios."
+              data-caption="Visão geral: valores em aberto, inadimplência e recebimentos.">Visão geral</button>
+            <button type="button" aria-pressed="false" data-src="assets/projetos/recebe-devedores.webp" data-path="/debtors"
+              data-alt="Tela Devedores do dia do Recebe, com parcelas atrasadas, juros de atraso e botão de cobrança pelo WhatsApp, com dados fictícios."
+              data-caption="Devedores do dia: parcelas vencidas, juros de atraso e cobrança pelo WhatsApp.">Devedores do dia</button>
+            <button type="button" aria-pressed="false" data-src="assets/projetos/recebe-clientes.webp" data-path="/clientes"
+              data-alt="Tela Clientes do Recebe com tabela de empréstimos e vendas parceladas e seus status, com dados fictícios."
+              data-caption="Clientes: empréstimos e vendas parceladas, com status de cobrança.">Clientes</button>
+          </div>
+        </div>
+
+        <div class="project-info">
+          <p class="project-kicker reveal"><span class="project-num">01</span><span>Sistema de gestão de cobranças e operações financeiras</span></p>
+          <h3 class="project-title reveal" id="recebe-title">Cobrança/<wbr>Recebe</h3>
+          <p class="project-lead reveal">
+            Uma aplicação voltada à organização de cobranças e operações financeiras, com foco no
+            acompanhamento dos registros, na visualização das informações e na organização dos
+            processos do dia a dia.
+          </p>
+
+          <div class="project-block reveal">
+            <h4>O problema</h4>
+            <p>
+              Empréstimos e vendas parceladas de iPhones eram acompanhados de forma manual. Era
+              preciso saber, todo dia, quem está devendo, quanto, desde quando, e cobrar sem perder
+              o controle do caixa.
+            </p>
+          </div>
+
+          <div class="project-block reveal">
+            <h4>O que já está implementado</h4>
+            <ul class="feature-list">
+              <li>Visão geral com valores em aberto, recebidos, inadimplência e vendas de produtos.</li>
+              <li>Cadastro de clientes com empréstimos e vendas parceladas semanais, quinzenais ou mensais.</li>
+              <li>Parcelas com registro de pagamentos e cálculo de juros de atraso.</li>
+              <li>Tela de devedores do dia, com mensagem de cobrança pronta para o WhatsApp.</li>
+              <li>Controle de vendas de iPhones, com estoque, custo e valor de venda.</li>
+              <li>Dados isolados por usuário (RLS no Supabase) e backup automático pelo GitHub Actions.</li>
+            </ul>
+          </div>
+
+          <div class="project-block reveal">
+            <h4>Tecnologias</h4>
+            <ul class="tag-list">
+              <li>Next.js 16</li><li>React 19</li><li>TypeScript</li><li>Tailwind CSS 4</li>
+              <li>Radix UI</li><li>Supabase</li><li>PostgreSQL</li><li>Zod</li><li>Recharts</li>
+              <li>Vitest</li><li>Vercel Cron</li><li>GitHub Actions</li><li>PWA</li>
+            </ul>
+          </div>
+
+          <div class="project-actions reveal">
+            <a class="btn btn-primary" href="https://github.com/viniciusarins-dev/Cobranca-ipad" target="_blank" rel="noopener noreferrer">
+              Ver projeto no GitHub <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">(abre em nova aba)</span>
+            </a>
+            <p class="project-status"><span class="dot" aria-hidden="true"></span>Em desenvolvimento · uso interno, sem demonstração pública</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 02 CRIEXO -->
+    <article class="project project-criexo" id="criexo" aria-labelledby="criexo-title">
+      <div class="container project-grid">
+        <div class="project-info">
+          <p class="project-kicker reveal"><span class="project-num">02</span><span>Inteligência comercial e prospecção de empresas</span></p>
+          <h3 class="project-title reveal" id="criexo-title">CRIEXO Intelligence</h3>
+          <p class="project-lead reveal">
+            Uma ferramenta de inteligência comercial em desenvolvimento, criada para estruturar a
+            prospecção de empresas e apoiar a identificação de oportunidades de negócio
+            relacionadas à impressão 3D.
+          </p>
+
+          <div class="project-block reveal">
+            <h4>O problema</h4>
+            <p>
+              Uma empresa que produz peças por impressão 3D precisa descobrir quem pode comprar o que
+              ela fabrica. Sem método, a prospecção vira uma lista solta de nomes, sem critério para
+              decidir por onde começar.
+            </p>
+          </div>
+
+          <div class="project-block reveal">
+            <h4>O que já está implementado</h4>
+            <ul class="feature-list">
+              <li>Pesquisa de empresas por segmento ou produto, dentro de um raio de atuação.</li>
+              <li>Ideias de produto aprovadas antes da busca, cadastradas à mão ou sugeridas por IA (Gemini), quando configurada.</li>
+              <li>Busca no cadastro interno e no OpenStreetMap, com dados de CNPJ pela BrasilAPI.</li>
+              <li>Pontuação automática das oportunidades, com aviso quando os dados estão incompletos.</li>
+              <li>Pipeline comercial por etapas, com histórico de status, observações e contatos.</li>
+              <li>Revisão de possíveis duplicidades, relatórios e exportação em CSV.</li>
+            </ul>
+          </div>
+
+          <div class="project-block reveal">
+            <h4>Tecnologias</h4>
+            <ul class="tag-list">
+              <li>Next.js 16</li><li>React 19</li><li>TypeScript</li><li>Tailwind CSS 4</li>
+              <li>Radix UI</li><li>Motion</li><li>Supabase</li><li>PostgreSQL</li><li>Zod</li>
+              <li>Vitest</li><li>Playwright</li><li>OpenStreetMap</li><li>BrasilAPI</li>
+            </ul>
+          </div>
+
+          <div class="project-actions reveal">
+            <a class="btn btn-primary" href="https://github.com/viniciusarins-dev/Criexo-itelligence" target="_blank" rel="noopener noreferrer">
+              Ver projeto no GitHub <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">(abre em nova aba)</span>
+            </a>
+            <p class="project-status"><span class="dot" aria-hidden="true"></span>Em desenvolvimento · ainda não publicado</p>
+          </div>
+        </div>
+
+        <div class="project-visual reveal" data-gallery>
+          <figure class="shot-stage">
+            <div class="shot-frame">
+              <div class="shot-bar" aria-hidden="true"><span></span><span></span><span></span><em data-gallery-path>/dashboard</em></div>
+              <img data-gallery-img src="assets/projetos/criexo-dashboard.webp" width="1600" height="1000"
+                   alt="Dashboard do CRIEXO Intelligence com empresas cadastradas, oportunidades prioritárias e distribuição por status, com dados fictícios."
+                   loading="lazy" decoding="async" />
+            </div>
+            <figcaption class="shot-caption" data-gallery-caption>Dashboard: oportunidades prioritárias ordenadas pela pontuação.</figcaption>
+          </figure>
+          <ol class="gallery-list">
+            <li><button type="button" aria-pressed="true" data-src="assets/projetos/criexo-dashboard.webp" data-path="/dashboard"
+              data-alt="Dashboard do CRIEXO Intelligence com empresas cadastradas, oportunidades prioritárias e distribuição por status, com dados fictícios."
+              data-caption="Dashboard: oportunidades prioritárias ordenadas pela pontuação."><span>01</span>Dashboard</button></li>
+            <li><button type="button" aria-pressed="false" data-src="assets/projetos/criexo-pesquisa.webp" data-path="/pesquisas"
+              data-alt="Página de uma pesquisa do CRIEXO Intelligence, com parâmetros, ideia de produto aprovada e busca concluída no OpenStreetMap, com dados fictícios."
+              data-caption="Pesquisa: parâmetros, ideias aprovadas e busca nas fontes."><span>02</span>Pesquisa</button></li>
+            <li><button type="button" aria-pressed="false" data-src="assets/projetos/criexo-pipeline.webp" data-path="/pipeline"
+              data-alt="Pipeline comercial do CRIEXO Intelligence em colunas por etapa, com cartões de oportunidades e suas notas, com dados fictícios."
+              data-caption="Pipeline comercial: cada mudança de etapa fica no histórico."><span>03</span>Pipeline</button></li>
+            <li><button type="button" aria-pressed="false" data-src="assets/projetos/criexo-relatorios.webp" data-path="/relatorios"
+              data-alt="Relatórios do CRIEXO Intelligence com funil comercial, pontuação, segmentos e produtos, com dados fictícios."
+              data-caption="Relatórios: funil, pontuação, segmentos e exportação em CSV."><span>04</span>Relatórios</button></li>
+          </ol>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="about" id="sobre" aria-labelledby="sobre-title">
+    <div class="container about-grid">
+      <div class="reveal">
+        <p class="eyebrow">Sobre</p>
+        <h2 class="section-title" id="sobre-title">Da necessidade ao sistema funcionando.</h2>
+      </div>
+      <div class="about-text reveal">
         <p>
-          Sou desenvolvedor focado em criar soluções práticas: sistemas de gestão, automações
-          de processos e integrações que economizam tempo real de quem trabalha com isso todo dia.
-          Gosto de projetos que misturam front-end bem cuidado com lógica de backend sólida —
-          desde dashboards com Next.js e Supabase até automações com Python e Selenium para
-          sistemas que não têm API oficial.
+          Sou Vinicius Arins e me interesso por desenvolvimento de sistemas, aplicações web e
+          soluções que facilitem processos reais. Gosto de explorar novas tecnologias, estruturar
+          ideias e transformar necessidades em aplicações que funcionam no dia a dia de quem usa.
         </p>
         <p>
-          Já desenvolvi desde painéis de cobrança e controle de parcelas com notificações
-          automáticas via WhatsApp, até integrações web para consulta de notas fiscais e
-          landing pages completas para negócios locais. Curioso por natureza, estou sempre
-          testando novas ferramentas e formas mais eficientes de resolver problemas.
+          Hoje concentro meu trabalho no Cobrança/Recebe e no CRIEXO Intelligence: dois sistemas
+          pensados para necessidades reais, em que trabalho do banco de dados e das regras de
+          negócio até a interface e os testes.
         </p>
-      </div>
-      <div class="contact-card">
-        <h3>Contato rápido</h3>
-        <ul class="contact-list">
-          <li><span class="icon">☎</span> <a href="tel:+5547989191953">(47) 98919-1953</a></li>
-          <li><span class="icon">in</span> <a href="https://www.linkedin.com/in/vinicius-de-jesus-arins-/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><span class="icon">◎</span> <a href="https://instagram.com/vn.jes" target="_blank" rel="noopener">@vn.jes</a></li>
-          <li><span class="icon">⌥</span> <a href="https://github.com/viniciusarins-dev" target="_blank" rel="noopener">github.com/viniciusarins-dev</a></li>
-        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="projetos">
-  <div class="wrap">
-    <h2 class="section-title">Projetos</h2>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="project-top">
-          <h3>Cobrança iPad</h3>
-          <span class="project-badge">PWA</span>
+  <!-- TECNOLOGIAS -->
+  <section class="stack" id="tecnologias" aria-labelledby="tecnologias-title">
+    <div class="container">
+      <header class="section-head reveal">
+        <p class="eyebrow">Tecnologias</p>
+        <h2 class="section-title" id="tecnologias-title">O que uso nos projetos.</h2>
+      </header>
+      <div class="stack-grid">
+        <div class="stack-col reveal">
+          <h3>Nos dois projetos</h3>
+          <ul>
+            <li>Next.js · React · TypeScript</li>
+            <li>Tailwind CSS · Radix UI</li>
+            <li>Supabase · PostgreSQL · RLS</li>
+            <li>Zod · Vitest</li>
+          </ul>
         </div>
-        <p class="desc">
-          Progressive Web App para gestão de empréstimos e vendas parceladas de iPhones,
-          otimizado para iPad/Safari. Cadastro de clientes, controle de parcelas em formato
-          de planilha e disparo automático de cobranças via WhatsApp, com verificação diária
-          de atrasos e templates de mensagem configuráveis.
-        </p>
-        <div class="tag-row">
-          <span class="tag">Next.js 16</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">Tailwind CSS v4</span>
-          <span class="tag">Supabase</span>
-          <span class="tag">Vercel Cron</span>
-          <span class="tag">WhatsApp API</span>
+        <div class="stack-col reveal">
+          <h3>Cobrança/Recebe</h3>
+          <ul>
+            <li>Recharts</li>
+            <li>Vercel Cron</li>
+            <li>GitHub Actions (backup)</li>
+            <li>PWA</li>
+          </ul>
         </div>
-        <div class="project-links">
-          <a href="https://github.com/viniciusarins-dev/Cobranca-ipad" target="_blank" rel="noopener">Ver no GitHub →</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <h3>Finanças Vini</h3>
-          <span class="project-badge">App Mobile</span>
-        </div>
-        <p class="desc">
-          App mobile iOS-first de controle financeiro pessoal, com registro de transações por
-          linguagem natural (ex: "Gastei 45 no almoço") e um assistente de IA financeiro.
-          Interface dark-first com efeitos de glassmorphism, gráficos, metas e acompanhamento
-          de orçamento — roda gratuitamente via Expo Go, sem precisar de conta paga de
-          desenvolvedor Apple.
-        </p>
-        <div class="tag-row">
-          <span class="tag">Expo SDK 57</span>
-          <span class="tag">React Native</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">NativeWind</span>
-          <span class="tag">Zustand</span>
-          <span class="tag">Reanimated</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/viniciusarins-dev/financas-vini" target="_blank" rel="noopener">Ver no GitHub →</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <h3>MxCenter Automation</h3>
-          <span class="project-badge">Automação</span>
-        </div>
-        <p class="desc">
-          API em Flask que automatiza a consulta de notas fiscais no sistema MxCenter (WTTI),
-          que não expõe API pública. Usa Selenium para login e busca de dados, retornando
-          resultados em JSON para um dashboard de verificação — incluindo galeria de produtos
-          e sugestões de reposição de estoque.
-        </p>
-        <div class="tag-row">
-          <span class="tag">Python</span>
-          <span class="tag">Flask</span>
-          <span class="tag">Selenium</span>
-          <span class="tag">Gunicorn</span>
-          <span class="tag">HTML</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/viniciusarins-dev/Funcionalidade-mxcenter" target="_blank" rel="noopener">Ver no GitHub →</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <h3>Sua Barbearia</h3>
-          <span class="project-badge">Landing Page</span>
-        </div>
-        <p class="desc">
-          Landing page completa para uma barbearia, com catálogo de serviços, cursos
-          profissionalizantes, apresentação da equipe, galeria e FAQ. Agendamento integrado
-          via WhatsApp, com identidade visual sóbria e foco em conversão para novos clientes.
-        </p>
-        <div class="tag-row">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Netlify</span>
-        </div>
-        <div class="project-links">
-          <a href="https://arins-barber.netlify.app" target="_blank" rel="noopener">Ver site →</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <h3>Projeto SENAI</h3>
-          <span class="project-badge">Formulário</span>
-        </div>
-        <p class="desc">
-          Implementação de um formulário de contato com integração ao WhatsApp, desenvolvido
-          durante formação no SENAI. Estrutura simples e direta em HTML, CSS e JavaScript puro.
-        </p>
-        <div class="tag-row">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/viniciusarins-dev/Projeto-Senai" target="_blank" rel="noopener">Ver no GitHub →</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="wrap">
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h4>Front-end</h4>
-        <div class="tag-row">
-          <span class="tag">HTML / CSS</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">Next.js / React</span>
-          <span class="tag">React Native / Expo</span>
-          <span class="tag">Tailwind CSS</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h4>Back-end</h4>
-        <div class="tag-row">
-          <span class="tag">Python</span>
-          <span class="tag">Flask</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">SQL</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h4>Dados & Infra</h4>
-        <div class="tag-row">
-          <span class="tag">Supabase</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Vercel</span>
-          <span class="tag">Netlify</span>
-          <span class="tag">Cron Jobs</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h4>Automação & Integrações</h4>
-        <div class="tag-row">
-          <span class="tag">Selenium</span>
-          <span class="tag">WhatsApp API</span>
-          <span class="tag">Web Scraping</span>
-          <span class="tag">Gunicorn</span>
+        <div class="stack-col reveal">
+          <h3>CRIEXO Intelligence</h3>
+          <ul>
+            <li>Motion</li>
+            <li>Playwright</li>
+            <li>OpenStreetMap · Nominatim</li>
+            <li>BrasilAPI · Gemini (opcional)</li>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="contato">
-  <div class="wrap">
-    <h2 class="section-title">Contato</h2>
-    <p class="lead" style="margin-bottom:28px;">
-      Aberto a novos projetos, freelas e oportunidades. Chama no WhatsApp ou manda mensagem
-      no LinkedIn — respondo rápido.
-    </p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://wa.me/5547989191953" target="_blank" rel="noopener">Falar no WhatsApp</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/vinicius-de-jesus-arins-/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn btn-ghost" href="https://instagram.com/vn.jes" target="_blank" rel="noopener">Instagram</a>
-      <a class="btn btn-ghost" href="https://github.com/viniciusarins-dev" target="_blank" rel="noopener">GitHub</a>
+  <!-- CONTATO -->
+  <section class="contact" id="contato" aria-labelledby="contato-title">
+    <div class="container">
+      <p class="eyebrow reveal">Contato</p>
+      <h2 class="contact-title reveal" id="contato-title">Vamos conversar sobre o próximo projeto?</h2>
+      <p class="contact-lead reveal">
+        Estou aberto a conversar sobre desenvolvimento de sistemas, aplicações web e novas oportunidades.
+      </p>
+      <ul class="contact-links reveal">
+        <li>
+          <a href="https://wa.me/5547989191953" target="_blank" rel="noopener noreferrer">
+            <span class="contact-kind">WhatsApp</span>
+            <span class="contact-value">(47) 98919-1953</span>
+            <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">(abre em nova aba)</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/vinicius-de-jesus-arins-/" target="_blank" rel="noopener noreferrer">
+            <span class="contact-kind">LinkedIn</span>
+            <span class="contact-value">vinicius-de-jesus-arins-</span>
+            <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">(abre em nova aba)</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/viniciusarins-dev" target="_blank" rel="noopener noreferrer">
+            <span class="contact-kind">GitHub</span>
+            <span class="contact-value">viniciusarins-dev</span>
+            <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">(abre em nova aba)</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/vn.jes" target="_blank" rel="noopener noreferrer">
+            <span class="contact-kind">Instagram</span>
+            <span class="contact-value">@vn.jes</span>
+            <span class="arrow" aria-hidden="true">↗</span><span class="sr-only">(abre em nova aba)</span>
+          </a>
+        </li>
+      </ul>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
-<footer>
-  <div class="wrap">
-    Vinicius de Jesus Arins — © 2026. Feito com HTML, CSS e café.
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© <span data-year>2026</span> Vinicius de Jesus Arins</p>
+    <a href="https://github.com/viniciusarins-dev" target="_blank" rel="noopener noreferrer">github.com/viniciusarins-dev<span class="sr-only"> (abre em nova aba)</span></a>
   </div>
 </footer>
-
 </body>
 </html>
