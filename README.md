@@ -38,6 +38,7 @@ comando de build.
 
 ## Contato
 
+- E-mail: viniciusdejesusarins@gmail.com
 - LinkedIn: https://www.linkedin.com/in/vinicius-de-jesus-arins-/
 - Instagram: [@vn.jes](https://instagram.com/vn.jes)
 - GitHub: [@viniciusarins-dev](https://github.com/viniciusarins-dev)
